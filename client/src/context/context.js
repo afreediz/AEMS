@@ -1,16 +1,16 @@
 import { createContext, useContext, useState } from 'react'
 
-export const userContext = createContext()
+export const adminContext = createContext()
 
-export const UserContextProvider = ({children}) => {
-    const [user, setUser] = useState()
+export const AdminContextProvider = ({children}) => {
+    const [admin, setAdmin] = useState()
     return (
-        <userContext.Provider value={{user, setUser}}>
+        <adminContext.Provider value={{admin, setAdmin}}>
             {children}
-        </userContext.Provider>
+        </adminContext.Provider>
     )
 }
 
-export const useAuth = () => useContext(userContext)
+export const useAuth = () => useContext(adminContext)
 
-export default UserContextProvider
+export default AdminContextProvider

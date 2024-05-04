@@ -1,27 +1,18 @@
 const { validateToken } = require('../helpers/jwt')
 const asyncErrorHandler = require("express-async-handler")
-const User = require('../models/user')
+const Admin = require('../models/admin')
 const CustomError = require('../utils/CustomError')
 
 const isAuthenticated = asyncErrorHandler(async(req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]
     if(!token) throw new CustomError("No Token Provided")
     const decoded = validateToken(token)
-    const user = await User.findById(decoded._id).select('_id name role')
-    if(!user) throw new CustomError("User not found")
-    req.user = user
-    next()
-})
-
-const isAdmin = asyncErrorHandler(async(req, res, next) => {
-    const userId = req.user._id
-    const user = await User.findOne({_id:userId})
-    if(user.role!='admin') throw new CustomError('UnAuthorized access', 400)
-    req.user = user
+    const admin = await Admin.findById(decoded._id).select('_id name role')
+    if(!admin) throw new CustomError("User not found")
+    req.admin = admin
     next()
 })
 
 module.exports = {
     isAuthenticated,
-    isAdmin
 }
