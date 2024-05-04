@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify'
-import API from '../../services/API'
+import API from '../../../services/API'
 
 const Login = () => {
   const navigate = useNavigate()

@@ -22,7 +22,9 @@ const AdminProtected = () => {
       }
       checkAuth()
     },[])
-    return (auth?<AdminLayout><Outlet /></AdminLayout>:<Navigate to='/login' />)
+    return (auth?<AdminLayout>
+      <Outlet />
+    </AdminLayout>:<Navigate to='/login' />)
 }
 
 export default AdminProtected
