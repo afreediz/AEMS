@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './dashboard.css'
 import { toast } from 'react-toastify'
 import API from '../../../services/API'
 function Dashboard() {
-    const [data, setData] = useEffect()
+    const [data, setData] = useState()
     useEffect(()=>{
         async function getData(){
             try{
@@ -57,7 +57,7 @@ function Dashboard() {
                 <div className="box box3">
                     <div className="text">
                         <h2 className="topic-heading">REGISTRATION STATUS :</h2>
-                        <h2 className="topic">{data.registration_status}</h2>
+                        <h2 className="topic">{data && data.registration_status}</h2>
                     </div>
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/5536/5536077.png"
