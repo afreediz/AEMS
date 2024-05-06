@@ -1,6 +1,18 @@
 import React from 'react';
 import './users.css'
 function Users() {
+    const [users, setUsers] = useState([])
+    useEffect(()=>{
+        async function getUsers(){
+            try{
+                const res = await API.get('admin/get-users')
+                setUsers(res.data.users)
+            }catch(error){
+                toast.error(error.response?.data.message)
+            }
+        }
+        getUsers()
+    })
     return (
         <div className="table-box">
             <div className="table-header">
@@ -26,91 +38,26 @@ function Users() {
                     <p>EVENT</p>
                 </div>
             </div>
+            {users && users.map((user, index)=>{
+                return (
             <div className="table-row">
                 <div className="table-cell first-cell">
-                    <p>1</p>
+                    <p>{index+1}</p>
                 </div>
                 <div className="table-cell d">
-                    <p>user1</p>
+                    <p>{user.name}</p>
                 </div>
                 <div className="table-cell">
-                    <p>abc@gmail.com</p>
+                    <p>{user.email}</p>
                 </div>
                 <div className="table-cell">
-                    <p>1234567892</p>
+                    <p>{user.phone}</p>
                 </div>
                 <div className="table-cell last-cell">
-                    <p>abc</p>
+                    <p>{user.event}</p>
                 </div>
-            </div>
-            <div className="table-row">
-                <div className="table-cell first-cell">
-                    <p>2</p>
-                </div>
-                <div className="table-cell d">
-                    <p>user2</p>
-                </div>
-                <div className="table-cell">
-                    <p>abc@gmail.com</p>
-                </div>
-                <div className="table-cell">
-                    <p>1234567892</p>
-                </div>
-                <div className="table-cell last-cell">
-                    <p>abc</p>
-                </div>
-            </div>
-            <div className="table-row">
-                <div className="table-cell first-cell">
-                    <p>3</p>
-                </div>
-                <div className="table-cell d">
-                    <p>user3</p>
-                </div>
-                <div className="table-cell">
-                    <p>abc@gmail.com</p>
-                </div>
-                <div className="table-cell">
-                    <p>1234567892</p>
-                </div>
-                <div className="table-cell last-cell">
-                    <p>abc</p>
-                </div>
-            </div>
-            <div className="table-row">
-                <div className="table-cell first-cell">
-                    <p>4</p>
-                </div>
-                <div className="table-cell d">
-                    <p>user4</p>
-                </div>
-                <div className="table-cell">
-                    <p>abc@gmail.com</p>
-                </div>
-                <div className="table-cell">
-                    <p>1234567892</p>
-                </div>
-                <div className="table-cell last-cell">
-                    <p>abc</p>
-                </div>
-            </div>
-            <div className="table-row">
-                <div className="table-cell first-cell">
-                    <p>5</p>
-                </div>
-                <div className="table-cell d">
-                    <p>user 5</p>
-                </div>
-                <div className="table-cell">
-                    <p>abc@gmail.com</p>
-                </div>
-                <div className="table-cell">
-                    <p>1234567892</p>
-                </div>
-                <div className="table-cell last-cell">
-                    <p>abc</p>
-                </div>
-            </div>
+            </div>)
+            })}
         </div>
     );
 }

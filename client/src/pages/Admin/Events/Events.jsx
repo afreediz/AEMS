@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './events.css';
 
 function Events() {
+    const [events, setEvents] = useState([])
+    useEffect(()=>{
+        async function getEvents(){
+            try{
+                const res = await API.get('admin/get-events')
+                setEvents(res.data.events)
+            }catch(error){
+                toast.error(error.response?.data.message)
+            }
+        }
+        getEvents()
+    })
     return (
         <div>
             <div className="table-box">
@@ -25,81 +37,24 @@ function Events() {
                         <p>NUMBER OF PARTICIPANTS</p>
                     </div>
                 </div>
-
-                <div className="table-row">
-                    <div className="table-cell first-cell">
-                        <p>1</p>
-                    </div>
-                    <div className="table-cell d">
-                        <p>user1</p>
-                    </div>
-                    <div className="table-cell">
-                        <p>abc</p>
-                    </div>
-                    <div className="table-cell last-cell">
-                        <p>a</p>
-                    </div>
-                </div>
-
-                <div className="table-row">
-                    <div className="table-cell first-cell">
-                        <p>2</p>
-                    </div>
-                    <div className="table-cell d">
-                        <p>user2</p>
-                    </div>
-                    <div className="table-cell">
-                        <p>abc</p>
-                    </div>
-                    <div className="table-cell last-cell">
-                        <p>b</p>
-                    </div>
-                </div>
-
-                <div className="table-row">
-                    <div className="table-cell first-cell">
-                        <p>3</p>
-                    </div>
-                    <div className="table-cell d">
-                        <p>user3</p>
-                    </div>
-                    <div className="table-cell">
-                        <p>abc</p>
-                    </div>
-                    <div className="table-cell last-cell">
-                        <p>c</p>
-                    </div>
-                </div>
-
-                <div className="table-row">
-                    <div className="table-cell first-cell">
-                        <p>4</p>
-                    </div>
-                    <div className="table-cell d">
-                        <p>user4</p>
-                    </div>
-                    <div className="table-cell">
-                        <p>abc</p>
-                    </div>
-                    <div className="table-cell last-cell">
-                        <p>d</p>
-                    </div>
-                </div>
-
-                <div className="table-row">
-                    <div className="table-cell first-cell">
-                        <p>5</p>
-                    </div>
-                    <div className="table-cell d">
-                        <p>user 5</p>
-                    </div>
-                    <div className="table-cell">
-                        <p>abc</p>
-                    </div>
-                    <div className="table-cell last-cell">
-                        <p>e</p>
-                    </div>
-                </div>
+                {events && events.map((event, index)=>{
+                    return (
+                        <div className="table-row">
+                            <div className="table-cell first-cell">
+                                <p>{index+1}</p>
+                            </div>
+                            <div className="table-cell d">
+                                <p>{event.name}</p>
+                            </div>
+                            <div className="table-cell">
+                                <p>{event.date}</p>
+                            </div>
+                            <div className="table-cell last-cell">
+                                <p>{event.participants_count}</p>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );
