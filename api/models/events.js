@@ -15,7 +15,7 @@ const eventsSchema = new mongoose.Schema({
     },
     catergory:{
         type:mongoose.Types.ObjectId,
-        ref:'catergory'
+        ref:'categories'
     }
 }, {timestamps:true})
 
