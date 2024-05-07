@@ -7,11 +7,13 @@ const { generateToken } = require("../helpers/jwt")
 
 const register = asyncErrorHandler(async(req, res)=>{
     console.log(req.body);
-    const { name, email, password } = req.body
-    if(!name || !email || !password ){
+    const { name, email, password, secretToken } = req.body
+    if(!name || !email || !password || !secretToken){
         throw new CustomError('Necessary details are not filled', 404)
     }
-
+    if(secretToken != process.env.ADMIN_SECRET_TOKEN){
+        throw new CustomError('Invalid secret token', 404)
+    }
     const isExist = await Admin.findOne({email})
     if(isExist) throw new CustomError('User already exists, Please Login or try with a different email address')
 

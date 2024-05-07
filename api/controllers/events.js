@@ -1,4 +1,4 @@
-const Event = require('../models/event/events')
+const Event = require('../models/events')
 const asyncErrorHandler = require("express-async-handler")
 const CustomError = require('../utils/CustomError')
 

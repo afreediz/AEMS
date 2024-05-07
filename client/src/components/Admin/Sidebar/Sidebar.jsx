@@ -53,7 +53,7 @@ function Sidebar() {
                 </nav>
             </div>
             {showLogout &&
-            <div className="absolute w-full h-full items-centerjustify-center">
+            <div className="absolute w-full h-full items-centerjustify-center z-40">
                 <div className=" shadow-md shadow-black border-2 border-slate-700  logout-box w-50vh bg-white my-44 mx-auto text-center p-12">
                 <h2>Logout</h2>
                 <p>Are you sure you want to logout?</p>

@@ -1,6 +1,8 @@
 const router = require('express').Router()
-const {} = require('../controllers/uiux')
+const { Home, AboutUs, Contact } = require('../controllers/uiux')
 
-// router.get('/something', Somthing)
+router.put('/home-page', Home.updatePage)
+router.put('/about-us-page', AboutUs.updatePage)
+router.put('/contact-page', Contact.updatePage)
 
 module.exports = router

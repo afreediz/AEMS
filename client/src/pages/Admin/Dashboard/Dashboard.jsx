@@ -7,7 +7,7 @@ function Dashboard() {
     useEffect(()=>{
         async function getData(){
             try{
-                const res = await API.get('admin/get-dashboard')
+                const res = await API.get('admin/dashboard-details')
                 setData(res.data.dashboard)
             }catch(error){
                 toast.error(error.response?.data.message)
@@ -57,7 +57,7 @@ function Dashboard() {
                 <div className="box box3">
                     <div className="text">
                         <h2 className="topic-heading">REGISTRATION STATUS :</h2>
-                        <h2 className="topic">{data && data.registration_status}</h2>
+                        {/* <h2 className="topic">{data && data.registration_status}</h2> */}
                     </div>
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/5536/5536077.png"

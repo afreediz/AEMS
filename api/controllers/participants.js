@@ -1,4 +1,4 @@
-const Participants = require('../models/')
+const Participants = require('../models/participants')
 const asyncErrorHandler = require("express-async-handler")
 const CustomError = require('../utils/CustomError')
 
