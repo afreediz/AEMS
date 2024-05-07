@@ -32,7 +32,7 @@ const Categories = () => {
             setCategories((old_categories)=>{
                 return [
                     ...old_categories,
-                    addCategory
+                    res.data.category
                 ]
             })
             setAddPopup(false)
@@ -55,21 +55,15 @@ const Categories = () => {
                 <div className="table-cell">
                     <p>NAME</p>
                 </div>
-                <div className="table-cell">
-                    <p></p>
-                </div>
             </div>
             {categories && categories.map((category, index)=>{
                 return (
             <div className="table-row">
-                <div className="table-cell first-cell">
+                <div className="table-cell d text-center">
                     <p>{index+1}</p>
                 </div>
-                <div className="table-cell d">
+                <div className="table-cell d text-center">
                     <p>{category.name}</p>
-                </div>
-                <div className="table-cell">
-                    <button className=' py-2 px-4 text-white bg-blue-600 rounded'>VIEW EVENTS</button>
                 </div>
             </div>)
             })}

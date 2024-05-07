@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './dashboard.css'
 import { toast } from 'react-toastify'
 import API from '../../../services/API'
+import {Link} from 'react-router-dom'
+
 function Dashboard() {
     const [data, setData] = useState()
     useEffect(()=>{
@@ -56,7 +58,7 @@ function Dashboard() {
 
                 <div className="box box3">
                     <div className="text">
-                        <h2 className="topic-heading">REGISTRATION STATUS :</h2>
+                        <h2 className="">REGISTRATION STATUS :</h2>
                         {/* <h2 className="topic">{data && data.registration_status}</h2> */}
                     </div>
                     <img
@@ -65,37 +67,54 @@ function Dashboard() {
                     />
                 </div>
             </div>
-
-            <div className="user-container">
-                <div className="user-header">
-                    <h1 className="recentlyjoined">RECENTLY JOINED</h1>
-                    <button className="view">View All</button>
+            <div className='table-box'>
+                <div className="add-userss">
+                    <h2 className='text-2xl font-semibold text-blue-800'>RECENTLY JOINED PARTICIPATNS</h2>
+                    <Link to='/admin/participants' >
+                        <button className="add-new" >VIEW ALL</button>
+                    </Link>
                 </div>
-
-                <div className="users-body">
-                    <div className="report-topic-heading">
-                        <h3 className="t-op">Index</h3>
-                        <h3 className="t-op"> NAME</h3>
-                        <h3 className="t-op">EMAIL</h3>
-                        <h3 className="t-op">EVENT</h3>
+                <div className="table-row table-head">
+                    <div className="table-cell">
+                        <p>ID</p>
                     </div>
-
-                    <div className="items">
-                        {data && data.participants.map((participant, index)=>{
-                            return (
-                            <div className="item1">
-                                <h3 className="t-op-nextlvl">{index+1}</h3>
-                                <h3 className="t-op-nextlvl">{participant.name}</h3>
-                                <h3 className="t-op-nextlvl">{participant.email}</h3>
-                                <h3 className="t-op-nextlvl label-tag">{participant.event}</h3>
-                            </div>
-                            )
-                        })
-                        }
+                    <div className="table-cell">
+                        <p>NAME</p>
+                    </div>
+                    <div className="table-cell">
+                        <p>EMAIL</p>
+                    </div>
+                    <div className="table-cell">
+                        <p>NUMBER</p>
+                    </div>
+                    <div className="table-cell">
+                        <p>EVENT</p>
                     </div>
                 </div>
+                {data && data.participants.map((participant, index)=>{
+                    return (
+                <div className="table-row" key={index}>
+                    <div className="table-cell">
+                        <p>{index+1}</p>
+                    </div>
+                    <div className="table-cell d">
+                        <p>{participant.name}</p>
+                    </div>
+                    <div className="table-cell">
+                        <p>{participant.email}</p>
+                    </div>
+                    <div className="table-cell">
+                        <p>{participant.phone}</p>
+                    </div>
+                    <div className="table-cell last-cell">
+                        <p>{participant.event.name}</p>
+                    </div>
+                </div>)
+                })}
             </div>
+
         </div>
+
     );
 }
 

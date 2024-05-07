@@ -9,10 +9,10 @@ import Layout from './components/UIUX/Layout'
 import Events from './pages/UIUX/Events/Events'
 import Contact from './pages/UIUX/Contact/Contact'
 import AdminEvents from './pages/Admin/Events/Events'
-import Users from './pages/Admin/Users/Users'
 import Mail from './pages/Admin/Mail/Mail'
 import Certificate from './pages/Admin/Certificate/Certificate'
 import Categories from './pages/Admin/Categories/Categories'
+import Participants from './pages/Admin/Participants/Participants'
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
         <Route path='/admin' element={<AdminProtected />}>
           <Route index element={<Dashboard />} />
           <Route path='/admin/events' element={<AdminEvents />} />
-          <Route path='/admin/users' element={<Users />} />
+          <Route path='/admin/participants' element={<Participants />} />
           <Route path='/admin/mail' element={<Mail />} />
           <Route path='/admin/certificate' element={<Certificate />} />
           <Route path='/admin/categories' element={<Categories />} />

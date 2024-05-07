@@ -6,7 +6,7 @@ margin: 50px auto;
     display: flex;
     width: 80%;
     margin: 10px auto;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .table-row{
 display: table;

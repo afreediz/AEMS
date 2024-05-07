@@ -16,14 +16,15 @@ const addCategories = asyncErrorHandler(async(req, res)=>{
     if(!name){
         throw new CustomError('Necessary details are not filled', 404)
     }
-    await new Category({
+    const category = await new Category({
         name,
         slug:slugify(name)
     }).save()
     console.log('saved')
     res.status(200).json({
         success:true,
-        message:"Category added successfully"
+        message:"Category added successfully",
+        category
     })
 })
 

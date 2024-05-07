@@ -3,24 +3,41 @@ const asyncErrorHandler = require("express-async-handler")
 const CustomError = require('../utils/CustomError')
 
 const getEvents = asyncErrorHandler(async(req, res)=>{
-    const events = await Event.find({})
+    const events = await Event.aggregate([
+        {
+            $lookup:{
+                from:"participants",
+                localField:"_id",
+                foreignField:"event",
+                as:"participants"
+            }
+        },
+        {
+            $project:{
+                name:1, date:1, price:1, category:1, slug:1,
+                participants_count:{$size:"$participants"}
+            }
+        }
+    ])
+    console.log(events);
     res.status(200).json({
         success:true,
-        events
+        events:events
     })
 })
 
 const addEvent = asyncErrorHandler(async(req, res)=>{
-    const {name, desc, date, price} = req.body;
-    if(!name || !desc || !date || !price){
+    const {name, desc, date, price, category} = req.body;
+    if(!name || !desc || !date || !price || !category){
         throw new CustomError('Necessary details are not filled', 404)
     }
-    await Event({
-        name, desc, date, price
+    const event = await Event({
+        name, desc, date, price, category
     }).save()
     res.status(200).json({
         success:true,
-        message:"Event added successfully"
+        message:"Event added successfully",
+        event
     })
 })
 

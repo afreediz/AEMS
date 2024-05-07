@@ -17,7 +17,7 @@ const eventsSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    catergory:{
+    category:{
         type:mongoose.Types.ObjectId,
         ref:'categories',
         required:true

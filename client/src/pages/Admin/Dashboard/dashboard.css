@@ -90,7 +90,6 @@ padding: 20px;
 width: 1120px; 
 display: flex; 
 justify-content: space-between; 
-align-items: center; 
 } 
 .t-op { 
 font-size: 18px; 
@@ -111,13 +110,77 @@ letter-spacing: 0px;
 font-weight: 600; 
 } 
 
-.label-tag { 
-width: 100px; 
-text-align: center; 
-background-color: rgb(0, 177, 0); 
-color: white; 
-border-radius: 4px; 
-}
+
+
+
+
+
+
+
+
+
+
+.add-userss{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 10px auto;
+    justify-content: space-between;
+ }
+  .table-box
+  {
+     margin: 50px auto;
+  }
+  .table-row{
+     display: table;
+     width: 80%;
+     margin: 10px auto;
+     font-family: sans-serif;
+     background: transparent;
+     padding: 12px 0;
+     color: #555;
+     font-size: 13px;
+     box-shadow: 0 1px 4px 0px rgba(0,0,50,0.3);
+  }
+  .table-head{
+     background: #3e1ebd;
+     box-shadow: none;
+     color: #f2eff5;
+     font-weight: 600;
+  
+  }
+  .table-head .table-cell{
+     border-right: none;
+  }
+  .table-cell{
+     display: table-cell;
+     width: 20%;
+     text-align: center;
+     padding: 4px 0;
+     border-right: 1px solid #d6d4d4;
+     vertical-align: middle;
+  }
+  .first-cell{
+     text-align: left;
+     padding-left: 10px;
+  }
+  .last-cell{
+     border-right: none;
+  }
+  a{
+     text-decoration: none;
+     color: #555;
+  }
+  
+  @media only screen and (max-width: 600px) {
+   .table-row {
+     font-size: 11px;
+   }
+  }
+  
+  .topnav a.active{
+     background-color: #a899e4;
+  }
 
 
 /* Responsive CSS Here */

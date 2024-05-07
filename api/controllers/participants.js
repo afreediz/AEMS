@@ -3,7 +3,7 @@ const asyncErrorHandler = require("express-async-handler")
 const CustomError = require('../utils/CustomError')
 
 const getParticipants = asyncErrorHandler(async(req, res)=>{
-    const participants = await Participants.find({})
+    const participants = await Participants.find({}).populate('event')
     res.status(200).json({
         success:true,
         participants
@@ -11,16 +11,18 @@ const getParticipants = asyncErrorHandler(async(req, res)=>{
 })
 
 const addParticipants = asyncErrorHandler(async(req, res)=>{
-    const {name, email, event} = req.body;
+    const {name, email, phone, address, event} = req.body;
     if(!name || !email){
         throw new CustomError('Necessary details are not filled', 404)
     }
-    await new Participants({
-        name, email, event
+    const saved = await new Participants({
+        name, email, phone, address, event
     }).save()
+    const participant = await Participants.findById(saved._id).populate('event')
     res.status(200).json({
         success:true,
-        message:"Participant added successfully"
+        message:"Participant added successfully",
+        participant
     })
 })
 
