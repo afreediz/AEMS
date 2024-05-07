@@ -6,11 +6,24 @@ import {Link} from 'react-router-dom'
 
 function Dashboard() {
     const [data, setData] = useState()
+    const [server_status, setServerStatus] = useState()
+
+    const updateServerStatus = async() => {
+        try{
+            const res = await API.put('/admin/server-status', {server_status:!server_status})
+            setServerStatus(!server_status)
+            toast.success(res.data.message)
+        }catch(error){
+            toast.error(error.response?.data.message)
+        }
+    }
     useEffect(()=>{
         async function getData(){
             try{
                 const res = await API.get('admin/dashboard-details')
                 setData(res.data.dashboard)
+                const server_status_res = await API.get('/admin/server-status')
+                setServerStatus(server_status_res.data.server_status)
             }catch(error){
                 toast.error(error.response?.data.message)
             }
@@ -65,7 +78,12 @@ function Dashboard() {
                         <div className="flex  flex-col">
                         <h2 className="topic-heading">REGISTRATION STATUS :</h2>
                         <div className="flex">
-                        <h2 className=' text-3xl font-bold'>OPEN</h2>
+                            <div className="status-box" onClick={()=>{updateServerStatus()}}>
+                            {server_status?
+                                <h2 className=' text-3xl font-bold bg-green-600 text-white py-2 px-6'>OPEN</h2>:
+                                <h2 className=' text-3xl font-bold bg-red-600 text-white py-2 px-6'>CLOSED</h2>
+                            }
+                            </div>
                         <img className=' max-w-12'
                         src="https://cdn-icons-png.flaticon.com/512/5536/5536077.png"
                         alt="comments"

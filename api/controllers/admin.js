@@ -36,8 +36,27 @@ const dashboardDetails = asyncErrorHandler(async(req, res)=>{
     })
 })
 
+const getServerStatus = asyncErrorHandler(async(req, res)=>{
+    const admin = await Admin.find({});
+    res.status(200).json({
+        success:true,
+        server_status:admin[0].server_status
+    })
+})
+
+const serverStatusUpdate = asyncErrorHandler(async(req, res)=>{
+    const {server_status} = req.body
+    await Admin.findOneAndUpdate({}, {server_status})
+    res.status(200).json({
+        success:true,
+        message:"Server status updated successfully"
+    })
+})
+
 module.exports = { 
     getAdmin,
     Profile,
-    dashboardDetails
+    dashboardDetails,
+    getServerStatus,
+    serverStatusUpdate
 }

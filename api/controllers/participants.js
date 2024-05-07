@@ -1,4 +1,5 @@
 const Participants = require('../models/participants')
+const Admin = require('../models/admin')
 const asyncErrorHandler = require("express-async-handler")
 const CustomError = require('../utils/CustomError')
 
@@ -11,6 +12,10 @@ const getParticipants = asyncErrorHandler(async(req, res)=>{
 })
 
 const addParticipants = asyncErrorHandler(async(req, res)=>{
+    const admin = await Admin.find({});
+    if(!admin[0].server_status){
+        throw new CustomError("Registration Closed", 404)
+    }
     const {name, email, phone, address, event} = req.body;
     if(!name || !email){
         throw new CustomError('Necessary details are not filled', 404)
