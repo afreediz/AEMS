@@ -1,7 +1,7 @@
 module.exports = (err, req, res, next)=> {
     console.log(err);
     if(err.code == 11000){
-        err.message = "Duplicate Field Value Enter"
+        err.message = "Duplicate Value"
     }
     switch(err.name){
         case "SyntaxError":

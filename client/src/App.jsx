@@ -12,6 +12,7 @@ import AdminEvents from './pages/Admin/Events/Events'
 import Users from './pages/Admin/Users/Users'
 import Mail from './pages/Admin/Mail/Mail'
 import Certificate from './pages/Admin/Certificate/Certificate'
+import Categories from './pages/Admin/Categories/Categories'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/admin/users' element={<Users />} />
           <Route path='/admin/mail' element={<Mail />} />
           <Route path='/admin/certificate' element={<Certificate />} />
+          <Route path='/admin/categories' element={<Categories />} />
         </Route>
 
         <Route path='*' element={<div className=''>Not found</div>} />

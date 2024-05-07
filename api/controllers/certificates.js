@@ -15,7 +15,7 @@ const addCertificates = asyncErrorHandler(async(req, res)=>{
     if(!name || !email || !certificate){
         throw new CustomError('Necessary details are not filled', 404)
     }
-    await Certificate({
+    await new Certificate({
         name, email, certificate
     }).save()
     res.status(200).json({

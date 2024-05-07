@@ -15,7 +15,7 @@ const addQueries = asyncErrorHandler(async(req, res)=>{
     if(!name || !email || !query){
         throw new CustomError('Necessary details are not filled', 404)
     }
-    await Query({
+    await new Query({
         name, email, query
     }).save()
     res.status(200).json({

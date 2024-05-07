@@ -43,6 +43,12 @@ function Sidebar() {
                             <h3> EMAIL</h3>
                         </div>
                         </Link>
+                        <Link to='/admin/categories'>
+                        <div className="nav-option option6">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6R4yHoJ1m5NOcEUvXPjKEHNJ25T94pM2jfnM8N4g3Og&s" className="nav-img" alt="EMAIL" />
+                            <h3> CATEGORIES</h3>
+                        </div>
+                        </Link>
                         <div className="nav-option logout" onClick={()=>{
                             setShowLogout(true)
                         }}>

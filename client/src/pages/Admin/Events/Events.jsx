@@ -15,7 +15,7 @@ function Events() {
             }
         }
         getEvents()
-    })
+    }, [])
     const [event, setEvent] = useState({
         name:"",
         desc:"",

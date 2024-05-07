@@ -11,12 +11,12 @@ const getEvents = asyncErrorHandler(async(req, res)=>{
 })
 
 const addEvent = asyncErrorHandler(async(req, res)=>{
-    const {name, desc, date} = req.body;
-    if(!name || !desc || !date){
+    const {name, desc, date, price} = req.body;
+    if(!name || !desc || !date || !price){
         throw new CustomError('Necessary details are not filled', 404)
     }
     await Event({
-        name, desc, date
+        name, desc, date, price
     }).save()
     res.status(200).json({
         success:true,

@@ -17,7 +17,7 @@ function Users() {
             }
         }
         getUsers()
-    })
+    }, [])
     const [participant, setParticipant] = useState({
         name:"",
         email:"",

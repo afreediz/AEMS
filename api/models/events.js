@@ -13,9 +13,14 @@ const eventsSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    price:{
+        type:Number,
+        required:true
+    },
     catergory:{
         type:mongoose.Types.ObjectId,
-        ref:'categories'
+        ref:'categories',
+        required:true
     }
 }, {timestamps:true})
 

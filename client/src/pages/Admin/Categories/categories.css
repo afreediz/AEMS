@@ -1,10 +1,4 @@
- .add-users{
-   display: flex;
-   width: 80%;
-   margin: 10px auto;
-   justify-content: flex-end;
-}
- .table-box
+.table-box
  {
     margin: 50px auto;
  }

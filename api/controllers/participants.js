@@ -15,7 +15,7 @@ const addParticipants = asyncErrorHandler(async(req, res)=>{
     if(!name || !email){
         throw new CustomError('Necessary details are not filled', 404)
     }
-    await Participants({
+    await new Participants({
         name, email, event
     }).save()
     res.status(200).json({

@@ -8,7 +8,7 @@ const CustomError = require('../utils/CustomError')
 module.exports = {
     Home:{
         getPage: asyncErrorHandler(async(req, res)=>{
-            const homePage = await HomePage.find({})
+            const homePage = await new HomePage.find({})
             res.status(200).json({
                 success:true,
                 homePage
@@ -25,7 +25,7 @@ module.exports = {
     },
     AboutUs:{
         getPage: asyncErrorHandler(async(req, res)=>{
-            const aboutUsPage = await AboutUsPage.find({})
+            const aboutUsPage = await new AboutUsPage.find({})
             res.status(200).json({
                 success:true,
                 aboutUsPage
@@ -42,7 +42,7 @@ module.exports = {
     },
     Contact:{
         getPage: asyncErrorHandler(async(req, res)=>{
-            const contactPage = await ContactPage.find({})
+            const contactPage = await new ContactPage.find({})
             res.status(200).json({
                 success:true,
                 contactPage
