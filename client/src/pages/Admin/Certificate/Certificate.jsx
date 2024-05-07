@@ -4,7 +4,9 @@ import './certificate.css'
 const Certificate = () => {
   return (
     <div>
-      certificate
+        <div className="table-header">
+            <p>CATEGOREIS</p>
+        </div>
     </div>
   )
 }
