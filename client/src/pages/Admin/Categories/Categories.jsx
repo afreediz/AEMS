@@ -40,6 +40,18 @@ const Categories = () => {
             toast.error(error.response?.data.message)
         }
     }
+    const delete_category = async(id)=>{
+        try{
+            await API.delete(`admin/categories/${id}`)
+            setCategories((old_categories)=>{
+                return old_categories.filter((category)=>{
+                    return category._id != id
+                })
+            })
+        }catch(error){
+            toast.error(error.response?.data.message)
+        }
+    }
   return (
     <div className="table-box">
             <div className="table-header">
@@ -55,6 +67,9 @@ const Categories = () => {
                 <div className="table-cell">
                     <p>NAME</p>
                 </div>
+                <div className="table-cell">
+                    <p className=' mx-5'>OPERATION</p>
+                </div>
             </div>
             {categories && categories.map((category, index)=>{
                 return (
@@ -64,6 +79,9 @@ const Categories = () => {
                 </div>
                 <div className="table-cell d text-center">
                     <p>{category.name}</p>
+                </div>
+                <div className="table-cell last-cell">
+                    <button className=' text-white px-4 py-2 bg-red-600 mx-5' onClick={()=>{delete_category(category._id)}}>delete</button>
                 </div>
             </div>)
             })}

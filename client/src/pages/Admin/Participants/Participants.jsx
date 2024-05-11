@@ -6,7 +6,9 @@ import {toast} from 'react-toastify'
 import AddParticipants from './AddParticipants';
 
 function Participants() {
-    const [participants, setParticipants] = useState([])
+    const [participants, setParticipants] = useState()
+    console.log(participants);
+    console.log(participants);
     const [addPopup, setAddPopup] = useState(false)
     useEffect(()=>{
         async function getParticipants(){
@@ -19,6 +21,18 @@ function Participants() {
         }
         getParticipants()
     }, [])
+    const delete_participant = async(id)=>{
+        try{
+            await API.delete(`admin/participants/${id}`)
+            setParticipants((old_participants)=>{
+                return old_participants.filter((participant)=>{
+                    return participant._id != id
+                })
+            })
+        }catch(error){
+            toast.error(error.response?.data.message)
+        }
+    }
     return (
         <div className="table-box">
             <div className="table-header">
@@ -43,6 +57,9 @@ function Participants() {
                 <div className="table-cell">
                     <p>EVENT</p>
                 </div>
+                <div className="table-cell">
+                    <p className=' mx-5'>OPERATION</p>
+                </div>
             </div>
             {participants && participants.map((participant, index)=>{
                 return (
@@ -60,7 +77,10 @@ function Participants() {
                     <p>{participant.phone}</p>
                 </div>
                 <div className="table-cell last-cell">
-                    <p>{participant.event.name}</p>
+                    <p>{participant.event?.name}</p>
+                </div>
+                <div className="table-cell last-cell">
+                    <button className=' text-white px-4 py-2 bg-red-600 mx-5' onClick={()=>{delete_participant(participant._id)}}>delete</button>
                 </div>
             </div>)
             })}

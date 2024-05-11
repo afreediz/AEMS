@@ -21,8 +21,18 @@ function Events() {
         }
         getEvents()
     }, [])
-    console.log(categories);
-    console.log(events);
+    const delete_event = async(id)=>{
+        try{
+            await API.delete(`admin/events/${id}`)
+            setEvents((old_events)=>{
+                return old_events.filter((event)=>{
+                    return event._id != id
+                })
+            })
+        }catch(error){
+            toast.error(error.response?.data.message)
+        }
+    }
     return (
         <div>
             <div className="table-box">
@@ -60,6 +70,9 @@ function Events() {
                     <div className="table-cell">
                         <p>NUMBER OF PARTICIPANTS</p>
                     </div>
+                    <div className="table-cell">
+                        <p className=' mx-5'>OPERATION</p>
+                    </div>
                 </div>
                 {events && events.map((event, index)=>{
                     return (
@@ -76,9 +89,13 @@ function Events() {
                             <div className="table-cell">
                                 <p>{event.price}</p>
                             </div>
-                            <div className="table-cell last-cell">
+                            <div className="table-cell">
                                 <p>{event.participants_count}</p>
                             </div>
+                            <div className="table-cell last-cell">
+                                <button className=' text-white px-4 py-2 bg-red-600 mx-5' onClick={()=>{delete_event(event._id)}}>delete</button>
+                            </div>
+                            
                         </div>
                     )
                 })}

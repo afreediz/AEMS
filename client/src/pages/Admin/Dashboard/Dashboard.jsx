@@ -134,7 +134,7 @@ function Dashboard() {
                         <p>{participant.phone}</p>
                     </div>
                     <div className="table-cell last-cell">
-                        <p>{participant.event.name}</p>
+                        <p>{participant.event?.name}</p>
                     </div>
                 </div>)
                 })}
