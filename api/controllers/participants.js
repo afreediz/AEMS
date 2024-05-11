@@ -26,7 +26,7 @@ const addParticipants = asyncErrorHandler(async(req, res)=>{
     const participant = await Participants.findById(saved._id).populate('event')
     res.status(200).json({
         success:true,
-        message:"Participant added successfully",
+        message:"Registration successfully",
         participant
     })
 })

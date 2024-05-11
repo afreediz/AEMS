@@ -23,13 +23,13 @@ const Certificate = () => {
         <div className=" grid grid-cols-10">
         <div className="container flex flex-col mx-auto my-8 max-w-7xl col-span-5">
           <span>NAME</span>
-          <input onChange={on_change} name='name' type="text" className='mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
+          <input onChange={on_change} name='name' type="text" className='outline outline-slate-700 mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
           <span>COLEGE</span>
-          <input onChange={on_change} name='college' type="text" className='mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
+          <input onChange={on_change} name='college' type="text" className='outline outline-slate-700 mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
           <span>DATE</span>
-          <input onChange={on_change} name='date' type="date" className='mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
+          <input onChange={on_change} name='date' type="date" className='outline outline-slate-700 mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
           <span>EVENT</span>
-          <input onChange={on_change} name='event' type="text" className='mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
+          <input onChange={on_change} name='event' type="text" className='outline outline-slate-700 mb-4  rounded border-2 border-slate-500 p-4 max-w-40:'/>
         </div>
         <div className="col-span-5 ml-4">
           <PDFViewerComponent name={data.name} college={data.college} date={data.date} event={data.event}/>

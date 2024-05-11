@@ -28,7 +28,7 @@ const AddEvent = ({setAddPopup, setEvents}) => {
         try{
             const res = await API.post('/admin/events', {...event, category:event_category})
             toast.success(res.data.message)
-            setEvent((old_events)=>{
+            setEvents((old_events)=>{
                 return [
                     ...old_events,
                     res.data.event
@@ -54,13 +54,13 @@ const AddEvent = ({setAddPopup, setEvents}) => {
             <form onSubmit={addEvent}>
             <div className=" w-4/5 bg-white h-auto my-8 mx-auto flex flex-col z-50 p-8">
                 <span className=' text-2xl text-slate-800 py-2'>NAME :</span>
-                <input name="name" onChange={onchange} value={event.name} className=' text-1xl text-black p-4 border-2 rounded border-black' type="text" />
+                <input name="name" onChange={onchange} value={event.name} className=' text-1xl text-black p-4 rounded outline outline-slate-700' type="text" />
                 <span className=' text-2xl text-slate-800 py-2'>DESCRIPTION :</span>
-                <textarea name="desc" onChange={onchange} value={event.desc} className=' text-1xl text-black p-4 border-2 rounded border-black' id="" cols="30" rows="10"></textarea>
+                <textarea name="desc" onChange={onchange} value={event.desc} className=' text-1xl text-black p-4 rounded outline outline-slate-700' id="" cols="30" rows="10"></textarea>
                 <span className=' text-2xl text-slate-800 py-2'>DATE</span>
-                <input name="date" onChange={onchange} value={event.date} className=' text-1xl text-black p-4 border-2 rounded border-black' type="date"id="" />
+                <input name="date" onChange={onchange} value={event.date} className=' text-1xl text-black p-4 rounded outline outline-slate-700' type="date"id="" />
                 <span className=' text-2xl text-slate-800 py-2'>REGISTARTION FEES :</span>
-                <input name='price' onChange={onchange} value={event.price} className=' text-1xl text-black p-4 border-2 rounded border-black' type="number" />
+                <input name='price' onChange={onchange} value={event.price} className=' text-1xl text-black p-4 rounded outline outline-slate-700' type="number" />
                 <span className=' text-2xl text-slate-800 py-2'>CATEGORY :</span>
                 <select onChange={(e)=>{setEvent_category(e.target.value)}} name="category" id="category">
                     <option  >select</option>

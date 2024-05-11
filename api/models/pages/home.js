@@ -1,18 +1,9 @@
 const mongoose = require('mongoose')
 
 const homePageSchema = new mongoose.Schema({
-    title:{
-        type:String,
-        required:true
-    },
-    desc:{
-        type:String,
-        required:true
-    },
-    image:{
-        type:String,
-        required:true
-    }
+    fest_name:String,
+    fest_quote:String,
+    fest_desc:String
 }, {timestamps:true})
 
-module.exports = mongoose.model('homePage', homePageSchema)
+module.exports = mongoose.model('homePages', homePageSchema)

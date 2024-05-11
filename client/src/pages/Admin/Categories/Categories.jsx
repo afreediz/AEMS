@@ -72,9 +72,9 @@ const Categories = () => {
                 <form onSubmit={addCategory}>
                 <div className=" w-4/5 bg-white h-auto my-8 mx-auto flex flex-col z-50 p-8">
                     <span className=' text-2xl text-slate-800 py-2'>NAME :</span>
-                    <input className=' text-1xl text-black p-4 border-2 rounded border-black' value={add_category.name} name="name" onChange={onchange} type="text" />
+                    <input className=' rounded outline outline-slate-700 text-1xl text-black p-4 border-2  border-black' value={add_category.name} name="name" onChange={onchange} type="text" />
                     <div className="">
-                        <button type='submit' className=' px-4 py-2 bg-green-600 text-2xl font-semibold text-white m-2'>ADD EVENT</button>
+                        <button type='submit' className=' px-4 py-2 bg-green-600 text-2xl font-semibold text-white m-2'>ADD CATEGORIES</button>
                         <button type='button' onClick={()=>{
                             setAddPopup(false)
                         }} className=' px-4 py-2 bg-red-600 text-2xl font-semibold text-white my-4 m-2'>CLOSE</button>

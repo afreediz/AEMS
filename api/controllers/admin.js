@@ -24,13 +24,14 @@ const Profile = asyncErrorHandler(async(req, res)=>{
 
 const dashboardDetails = asyncErrorHandler(async(req, res)=>{
     const participants = await Participant.find({}).limit(5).populate('event').sort({ createdAt: -1 });
+    const participants_count = await Participant.find({}).count();
     const events_count = await Event.find({}).count();
     res.status(200).json({
         success:true,
         message:"Dashboard details",
         dashboard:{
-            participants:participants.slice(0, 5),
-            participants_count:participants.length,
+            participants:participants,
+            participants_count:participants_count,
             events_count
         }
     })

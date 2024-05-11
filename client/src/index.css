@@ -15,14 +15,12 @@
 margin: 0; 
 padding: 0; 
 box-sizing: border-box; 
-font-family: "Poppins", sans-serif; 
-
 } 
 :root { 
 --background-color1: #fafaff; 
 --background-color2: #ffffff; 
 --background-color3: #ededed; 
---background-color4: #FAF9F6 
+--background-color4: #FAF9F6 ;
 --primary-color: #4b49ac; 
 --secondary-color: #0c007d; 
 --Border-color: #3f0097; 

@@ -7,12 +7,13 @@ import Login from './pages/Auth/Login/Login'
 import ForgetPassword from './pages/Auth/ForgetPassword/ForegetPassword'
 import Layout from './components/UIUX/Layout'
 import Events from './pages/UIUX/Events/Events'
-import Contact from './pages/UIUX/Contact/Contact'
+import Register from './pages/UIUX/Register/Register'
 import AdminEvents from './pages/Admin/Events/Events'
 import Mail from './pages/Admin/Mail/Mail'
 import Certificate from './pages/Admin/Certificate/Certificate'
 import Categories from './pages/Admin/Categories/Categories'
 import Participants from './pages/Admin/Participants/Participants'
+import UIUX from './pages/Admin/UIUX/UIUX'
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Route path='/' element={<Layout />} >
           <Route index element={<Home />} />
           <Route path='/events' element={<Events />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='/register' element={<Register />} />
         </Route>
 
         <Route path='/login' element={<Login />}/>
@@ -34,6 +35,7 @@ const App = () => {
           <Route path='/admin/mail' element={<Mail />} />
           <Route path='/admin/certificate' element={<Certificate />} />
           <Route path='/admin/categories' element={<Categories />} />
+          <Route path='/admin/uiux' element={<UIUX />} />
         </Route>
 
         <Route path='*' element={<div className=''>Not found</div>} />

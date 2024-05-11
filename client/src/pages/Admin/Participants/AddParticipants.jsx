@@ -59,13 +59,13 @@ const AddParticipants = ({setAddPopup, setParticipants}) => {
         <form onSubmit={addParticipant}>
         <div className=" w-4/5 bg-white h-auto my-8 mx-auto flex flex-col z-50 p-8">
             <span className=' text-2xl text-slate-800 py-2'>NAME :</span>
-            <input className=' text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.name} name="name" onChange={onchange} type="text" />
+            <input className='outline outline-slate-700  text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.name} name="name" onChange={onchange} type="text" />
             <span className=' text-2xl text-slate-800 py-2'>EMAIL :</span>
-            <input className=' text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.email} name="email" onChange={onchange}/>
+            <input className='outline outline-slate-700  text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.email} name="email" onChange={onchange}/>
             <span className=' text-2xl text-slate-800 py-2'>PHONE :</span>
-            <input className=' text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.phone} name="phone" onChange={onchange} />
+            <input className='outline outline-slate-700  text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.phone} name="phone" onChange={onchange} />
             <span className=' text-2xl text-slate-800 py-2'>ADDRESS :</span>
-            <input className=' text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.address} name="address" onChange={onchange}/>
+            <input className='outline outline-slate-700  text-1xl text-black p-4 border-2 rounded border-black' value={add_participant.address} name="address" onChange={onchange}/>
             <span className=' text-2xl text-slate-800 py-2'>EVENT :</span>
             <select name="event" onChange={(e)=>{setSelectedEvent(e.target.value)}} id="">
             <option  >select</option>
@@ -74,7 +74,7 @@ const AddParticipants = ({setAddPopup, setParticipants}) => {
                     })}
             </select>
             <div className="">
-                <button type='submit' className=' px-4 py-2 bg-green-600 text-2xl font-semibold text-white m-2'>ADD EVENT</button>
+                <button type='submit' className=' px-4 py-2 bg-green-600 text-2xl font-semibold text-white m-2'>ADD PARTICIPENT</button>
                 <button type='button' onClick={()=>{
                     setAddPopup(false)
                 }} className=' px-4 py-2 bg-red-600 text-2xl font-semibold text-white my-4 m-2'>CLOSE</button>
