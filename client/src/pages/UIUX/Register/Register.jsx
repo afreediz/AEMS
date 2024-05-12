@@ -34,6 +34,7 @@ const Register = () => {
       address:""
     })
   }
+  const [ticket, setTicket] = useState()
   const register = async(e) => {
     e.preventDefault()
     try{
@@ -41,6 +42,7 @@ const Register = () => {
         ...data,
         event:selectedEvent
       })
+      setTicket(res.data.participant._id)
       setTimeout(()=>{
         clear_inputs()
       }, 1000)
@@ -58,6 +60,7 @@ const Register = () => {
           </div>
         <form onSubmit={register}>
             <h3>Register </h3>
+            <span className="text-3xl font-semibold py-4">{ticket && `Ticket Id : ${ticket}`}</span>
             <input onChange={on_change} value={data.name} type="text" name="name" placeholder="your name" className="" />
             <input onChange={on_change} value={data.phone} type="number" name="phone" placeholder="your number" className="" />
             <input onChange={on_change} value={data.email} type="email" name="email" placeholder="your email" className="" />

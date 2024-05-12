@@ -16,7 +16,7 @@ const Certificate = () => {
     setData({...data, [name]: value})
   }
   return (
-    <div>
+    <div className=' text-3xl'>
         <div className="table-header">
             <p>GENERATE CERTIFICATE</p>
         </div>

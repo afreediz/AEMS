@@ -19,7 +19,6 @@ const getEvents = asyncErrorHandler(async(req, res)=>{
             }
         }
     ])
-    console.log(events);
     res.status(200).json({
         success:true,
         events:events

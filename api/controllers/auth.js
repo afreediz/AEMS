@@ -6,7 +6,6 @@ const { hashPassword, comparePassword } = require("../helpers/auth")
 const { generateToken } = require("../helpers/jwt")
 
 const register = asyncErrorHandler(async(req, res)=>{
-    console.log(req.body);
     const { name, email, password, secretToken } = req.body
     if(!name || !email || !password || !secretToken){
         throw new CustomError('Necessary details are not filled', 404)

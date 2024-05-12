@@ -13,7 +13,6 @@ module.exports = {
     Home:{
         getPage: asyncErrorHandler(async(req, res)=>{
             const homePage = await HomePage.findOne({})
-            console.log(homePage);
             res.status(200).json({
                 success:true,
                 homePage
@@ -21,8 +20,6 @@ module.exports = {
         }),
         updatePage: asyncErrorHandler(async(req, res)=>{
             const {fest_name, fest_quote, fest_desc} = req.body
-            console.log(req.body);
-            console.log(await HomePage.findOne({}));
             await HomePage.findOneAndUpdate({}, {fest_name, fest_quote, fest_desc})
             res.status(200).json({
                 success:true,
@@ -57,8 +54,6 @@ module.exports = {
         }),
         updatePage: asyncErrorHandler(async(req, res)=>{
             const {contact_info, social_medias} = req.body
-            console.log("contact_info",contact_info, " social_medias", social_medias);
-            console.log(await ContactPage.findOne({}));
             await ContactPage.findOneAndUpdate({}, {contact_info, social_medias})
             res.status(200).json({
                 success:true,
@@ -113,23 +108,6 @@ module.exports = {
         updatePage: asyncErrorHandler(async(req, res)=>{
             const {heading, content, location} = req.body
             await LocationPage.findOneAndUpdate({}, {heading, content, location})
-            res.status(200).json({
-                success:true,
-                message:"Page updated successfully"
-            })
-        })
-    },
-    Others:{
-        getPage: asyncErrorHandler(async(req, res)=>{
-            // const others = await new HomePage.find({})
-            res.status(200).json({
-                success:true,
-                // others
-            })
-        }),
-        update: asyncErrorHandler(async(req, res)=>{
-            const {others} = req.body
-            // await HomePage.findOneAndUpdate({}, {others})
             res.status(200).json({
                 success:true,
                 message:"Page updated successfully"

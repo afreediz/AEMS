@@ -9,6 +9,7 @@ const Navbar = () => {
     <nav class="navbar">
         <NavLink to="/">home</NavLink>
         <NavLink to="/events">events </NavLink>
+        <NavLink to="/contact">contact</NavLink>
         <NavLink to="/register">register</NavLink>
     </nav>
     <div id="menu-btn" class="fas fa-bars"></div>

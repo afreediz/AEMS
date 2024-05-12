@@ -5,12 +5,10 @@ import { toast } from 'react-toastify'
 
 const Link = () => {
   const [data, setData] = useState()
-  console.log(data);
   useEffect(()=>{
     const getData = async()=> {
       try{
         const response = await API.get('/contact')
-        console.log(response);
         setData(response.data.contactPage)
       }catch(error){
         toast.error(error.response?.data.message)
@@ -59,8 +57,8 @@ const Link = () => {
                     <div className="grid grid-cols-5 w-full">
                       <input value={contact.content} onChange={(e)=>{setContact({...contact, content:e.target.value})}} name='contact' type="text" className=' col-span-4 m outline outline-slate-700 mb-4 rounded border-2 border-slate-500 p-2 w-full'/> 
                       <select  className=' col-span-1' onChange={(e)=>{setContact({...contact, type:e.target.value})}} name="type" id="">
-                        <option value="phone">phone</option>
-                        <option value="email">email</option>  
+                        <option selected value="phone">phone</option>
+                        <option value="envelope">email</option>  
                       </select> 
                     </div>
                     <button onClick={add_contact} type='button' className=' px-6 py-3 bg-blue-600 text-2xl font-semibold text-white w-full'>ADD CONTACT</button>
@@ -75,7 +73,7 @@ const Link = () => {
                     <div className="grid grid-cols-5 w-full">
                       <input value={media.content} onChange={(e)=>{setMedia({...media, content:e.target.value})}} name='contact' type="text" className=' col-span-4 m outline outline-slate-700 mb-4 rounded border-2 border-slate-500 p-2 w-full'/> 
                       <select onChange={(e)=>{setMedia({...media, type:e.target.value})}} className=' col-span-1' name="type" id="">
-                        <option value="instagram">instagram</option>  
+                        <option selected value="instagram">instagram</option>  
                         <option value="facebook">facebook</option>
                         <option value="linkedin">linkedin</option>
                         <option value="twitter">twitter</option>

@@ -7,8 +7,6 @@ import AddParticipants from './AddParticipants';
 
 function Participants() {
     const [participants, setParticipants] = useState()
-    console.log(participants);
-    console.log(participants);
     const [addPopup, setAddPopup] = useState(false)
     useEffect(()=>{
         async function getParticipants(){

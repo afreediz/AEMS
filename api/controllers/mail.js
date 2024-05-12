@@ -13,7 +13,6 @@ const transporter = nodemailer.createTransport({
 
 const sendMail = asyncErrorHandler(async(req, res) => {
     const { email, subject, message } = req.body;
-    console.log(req.body);
     if(!email || !subject || !message){
         throw new CustomError('Necessary details are not filled', 404)
     }
@@ -29,7 +28,6 @@ const sendMail = asyncErrorHandler(async(req, res) => {
         if (error) {
             throw new CustomError(error.message, 400)
         } else {
-            console.log('Email sent: ' + info.response);
             res.status(200).json({
                 success: true,
                 message: 'Email sent successfully'

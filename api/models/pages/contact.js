@@ -6,7 +6,7 @@ const contactPageSchema = new mongoose.Schema({
             type: {
               type: String,
               required: true,
-              enum:['phone','email']
+              enum:['phone','envelope','location']
             },
             content: {
               type: String,
@@ -19,7 +19,7 @@ const contactPageSchema = new mongoose.Schema({
             type:{
                 type:String,
                 required:true,
-                enum:['instagram','twitter','facebook','linkedIn']
+                enum:['instagram','twitter','facebook','linkedin']
             },
             content:{
                 type:String,

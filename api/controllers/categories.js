@@ -20,7 +20,6 @@ const addCategories = asyncErrorHandler(async(req, res)=>{
         name,
         slug:slugify(name)
     }).save()
-    console.log('saved')
     res.status(200).json({
         success:true,
         message:"Category added successfully",
