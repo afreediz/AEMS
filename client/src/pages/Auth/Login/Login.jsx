@@ -30,15 +30,17 @@ const Login = () => {
     }
   }
   return (
-    <div className='mx-auto w-1/3 border-2 border-slate-500'>
-      <h1 className='flex justify-center font-medium'>Login form</h1>
+    <div className="w-full">
+          <div className='mx-auto my-80 p-20 text-3xl w-1/3 border-2 outline outline-slate-400 border-slate-500'>
+      <h1 className='flex justify-center text-6xl font-medium'>Login form</h1>
       <div className="inputs p-4">
         <form onSubmit={login}>
-          <input type="text" className='w-full' placeholder='Email' name='email' value={data.email} onChange={onchange} />
-          <input type="text" className='w-full' placeholder='Password' name='password' value={data.password} onChange={onchange} />
+          <input type="text" className='w-full p-2 my-2' placeholder='Email' name='email' value={data.email} onChange={onchange} />
+          <input type="text" className='w-full p-2 my-2' placeholder='Password' name='password' value={data.password} onChange={onchange} />
           <button className='w-full py-2 bg-green-600 text-white font-normal'>Login</button>
         </form>
       </div>
+    </div>
     </div>
   )
 }

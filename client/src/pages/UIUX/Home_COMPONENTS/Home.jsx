@@ -22,7 +22,7 @@ const Home = () => {
               <img src={HomeGif} alt="" />
           </div>
           <div className="content">
-              <h3>{data && data.fest_name}</h3>
+              <h3>{data && data.fest_name} : {data && data.fest_quote}</h3>
               <p>{data && data.fest_desc}</p>
               <NavLink to="/register" className="btn"> Register now <span className="fas fa-chevron-right"></span> </NavLink>
           </div>
