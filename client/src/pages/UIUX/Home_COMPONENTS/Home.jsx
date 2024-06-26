@@ -17,8 +17,8 @@ const Home = () => {
         getData()
     },[])
     return (
-      <section className="home" id="home">
-          <div className="image">
+      <section className="home h-screen" id="home">
+          <div className="image max-w-[70rem]">
               <img src={HomeGif} alt="" />
           </div>
           <div className="content">
